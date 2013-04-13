@@ -1,0 +1,14 @@
+{
+  "name": "playlist-api",
+  "version": "0.0.1",
+  "main": "./server.js",
+  "dependencies" : {
+    "express": "2.5.x"
+  },
+  "noAnalyze": true,
+  "license": "Apache",
+  "engines": {
+    "node": ">=0.8.x",
+    "npm": "1.1.x"
+  }
+}

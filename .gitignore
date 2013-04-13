@@ -10,5 +10,8 @@ lib-cov
 pids
 logs
 results
+iisnode
 
 npm-debug.log
+
+web.config
