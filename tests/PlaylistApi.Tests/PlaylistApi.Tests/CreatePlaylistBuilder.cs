@@ -10,7 +10,7 @@ namespace PlaylistApi.Tests
         public CreatePlaylistBuilder()
         {
             var playlistApiUri = ConfigurationManager.AppSettings["PlaylistApiUri"];
-            _createPlaylistUri = playlistApiUri + "/create";
+            _createPlaylistUri = playlistApiUri + "/playlist/create";
         }
         
         public Playlist Please()
@@ -22,6 +22,7 @@ namespace PlaylistApi.Tests
                     Owner = "Daniel",
                     Name = "Super Cool Playlist"
                 };
+            request.RequestFormat = DataFormat.Json;
             request.AddBody(playlistRequest);
             var response = client.ExecuteAsPost<Playlist>(request, "POST");
             return response.Data;

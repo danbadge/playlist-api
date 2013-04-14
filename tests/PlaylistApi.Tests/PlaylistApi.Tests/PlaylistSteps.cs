@@ -15,7 +15,7 @@ namespace PlaylistApi.Tests
         {
             _playlist = new CreatePlaylistBuilder().Please();
             Assert.That(_playlist, Is.Not.Null);
-            Assert.That(_playlist.Id, Is.GreaterThan(0));
+            Assert.That(_playlist.Id, Is.Not.EqualTo("0"));
         }
 
         [When(@"I add a track to the playlist")]

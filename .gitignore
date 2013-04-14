@@ -15,4 +15,6 @@ iisnode
 npm-debug.log
 
 web.config
+bin
 obj
+
