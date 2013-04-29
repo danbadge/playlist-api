@@ -26,7 +26,13 @@ Response
 ### Add Track to Playlist
 Request
 ```bash
-POST /playlist/:id/queue/:trackId
+POST /playlist/:id/track/:trackId
+Body:
+{ 
+	"trackName": "Reckoner",
+	"artistName": "Radiohead",
+	"imageUri": "http://image.url.com" 
+}
 ````
 Response
 ``` bash
