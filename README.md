@@ -26,7 +26,7 @@ Response
 ### Add Track to Playlist
 Request
 ```bash
-POST /playlist/:id/track/:trackId
+POST /playlist/1234/track/5678
 Body:
 { 
 	"trackName": "Reckoner",
