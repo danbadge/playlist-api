@@ -37,7 +37,10 @@ exports.playlist = {
             throw new Error('Playlist could not be found');
 
         var track = {
-            id: request.params.trackId
+            id: request.params.trackId,
+            trackName: request.body.trackName,
+            artistName: request.body.artistName,
+            imageUri: request.body.imageUri
         };
 
         playlist.tracks.push(track);
