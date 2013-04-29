@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using PlaylistApi.Tests.ApiWrapper;
 using PlaylistApi.Tests.ApiWrapper.Schema;
@@ -12,6 +14,7 @@ namespace PlaylistApi.Tests
 	    private CreatePlaylistBuilder _playlistBuilder;
 	    private Playlist _playlist;
 	    private string _playlistName;
+		private readonly List<string> _playlistIds = new List<string>();
 
 	    [Given(@"I want to create a playlist")]
         public void GivenIWantToCreateAPlaylist()
@@ -37,5 +40,20 @@ namespace PlaylistApi.Tests
 	    {
 		    Assert.That(_playlist.Name, Is.EqualTo(_playlistName));
 	    }
+
+		[Given(@"I create a playlist")]
+		[When(@"I create a playlist")]
+		public void GivenICreateAPlaylist()
+		{
+			_playlistBuilder = new CreatePlaylistBuilder();
+			_playlist = _playlistBuilder.Please();
+			_playlistIds.Add(_playlist.Id);
+		}
+
+		[Then(@"the id has increased")]
+		public void ThenTheIdHasIncreased()
+		{
+			Assert.That(_playlist.Id, Is.GreaterThan(_playlistIds.First()));
+		}
     }
 }

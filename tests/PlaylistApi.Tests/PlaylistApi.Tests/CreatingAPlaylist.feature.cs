@@ -65,19 +65,36 @@ namespace PlaylistApi.Tests
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Creating multiple playlists generates unique identifiers")]
+        public virtual void CreatingMultiplePlaylistsGeneratesUniqueIdentifiers()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating multiple playlists generates unique identifiers", ((string[])(null)));
+#line 3
+this.ScenarioSetup(scenarioInfo);
+#line 4
+ testRunner.Given("I create a playlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+ testRunner.When("I create a playlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 6
+ testRunner.Then("the id has increased", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Creating a playlist with a name")]
         public virtual void CreatingAPlaylistWithAName()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a playlist with a name", ((string[])(null)));
-#line 3
+#line 8
 this.ScenarioSetup(scenarioInfo);
-#line 4
+#line 9
  testRunner.Given("I want to create a playlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 5
+#line 10
  testRunner.And("I name the playlist Daniel Super Cool Playlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 6
+#line 11
  testRunner.When("I create my playlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 7
+#line 12
  testRunner.Then("it returns the correct name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
