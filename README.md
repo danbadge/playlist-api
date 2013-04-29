@@ -6,38 +6,43 @@ Uses https://github.com/felixge/node-dirty as in memory store.
 
 ## Endpoints
 
-###POST /playlist/create
-\nBODY
-``` javascript
-{
-"name": "My first playlist"
-}
+### Create Playlist
+```bash
+POST /playlist/create
+Body:
+{ "name": "My first playlist" }
 ```
 
 RESPONSE
 ``` javascript
 {
-"id": "1234",
-"name": "My first playlist",
-"tracks": {}
+	"id": "1234",
+	"name": "My first playlist",
+	"tracks": {}
 }
 ```
 
-###POST /playlist/1234/queue/5678
-RESPONSE
+### Add track to playlist
+request
+```bash
+POST /playlist/:id/queue/:trackId
+````
+Response
 ``` javascript
-{
-"id": "5678"
-}
+{ "id": "5678" }
 ```
 
-###GET /playlist/1234
-RESPONSE
+###
+Request
+```bash
+GET /playlist/1234
+````
+Response
 ``` javascript
 {
-"id": "1234",
-"name": "My first playlist",
-"tracks": { "id": "5678" }
+	"id": "1234",
+	"name": "My first playlist",
+	"tracks": { "id": "5678" }
 }
 ```
 
