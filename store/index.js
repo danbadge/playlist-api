@@ -2,7 +2,11 @@ var dirty = require('dirty');
 var db = dirty('playlist.db');
 
 exports.count = function () {
-    return db.length;
+    var count = 0;
+    db.forEach(function (key, value) {
+        count++;
+    });
+    return count;
 };
 
 exports.get = function (key) {
