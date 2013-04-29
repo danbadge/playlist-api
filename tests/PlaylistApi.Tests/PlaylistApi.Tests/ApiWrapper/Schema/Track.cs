@@ -1,4 +1,4 @@
-﻿namespace PlaylistApi.Tests
+﻿namespace PlaylistApi.Tests.ApiWrapper.Schema
 {
     public class Track
     {

@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,25 +57,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatePlaylistBuilder.cs" />
-    <Compile Include="GetPlaylistBuilder.cs" />
-    <Compile Include="Playlist.cs" />
-    <Compile Include="PlaylistSteps.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AddingATrackToAnEmptyPlaylist.feature.cs">
+    <Compile Include="ApiWrapper\CreatePlaylistBuilder.cs" />
+    <Compile Include="ApiWrapper\GetPlaylistBuilder.cs" />
+    <Compile Include="ApiWrapper\IRequestBody.cs" />
+    <Compile Include="ApiWrapper\RestRequestWrapper.cs" />
+    <Compile Include="ApiWrapper\Schema\Playlist.cs" />
+    <Compile Include="ApiWrapper\PlaylistRequest.cs" />
+    <Compile Include="CreatePlaylistSteps.cs" />
+    <Compile Include="CreatingAPlaylist.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AddingATrackToAnEmptyPlaylist.feature</DependentUpon>
+      <DependentUpon>CreatingAPlaylist.feature</DependentUpon>
     </Compile>
-    <Compile Include="QueueTrackBuilder.cs" />
-    <Compile Include="Track.cs" />
+    <Compile Include="PlaylistSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AddingATrackToAPlaylist.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddingATrackToAPlaylist.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ApiWrapper\QueueTrackBuilder.cs" />
+    <Compile Include="ApiWrapper\Schema\Track.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="AddingATrackToAnEmptyPlaylist.feature">
+    <None Include="CreatingAPlaylist.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AddingATrackToAnEmptyPlaylist.feature.cs</LastGenOutput>
+      <LastGenOutput>CreatingAPlaylist.feature.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="AddingATrackToAPlaylist.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AddingATrackToAPlaylist.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

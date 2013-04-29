@@ -1,5 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 using NUnit.Framework;
+using PlaylistApi.Tests.ApiWrapper;
+using PlaylistApi.Tests.ApiWrapper.Schema;
 using TechTalk.SpecFlow;
 
 namespace PlaylistApi.Tests
@@ -8,8 +12,8 @@ namespace PlaylistApi.Tests
     public class PlaylistSteps
     {
         private Playlist _playlist;
-        private const string TrackId = "23684223";
-
+	    private string _trackId;
+	    
         [Given(@"I have a empty playlist")]
         public void GivenIHaveAEmptyPlaylist()
         {
@@ -21,8 +25,11 @@ namespace PlaylistApi.Tests
         [When(@"I add a track to the playlist")]
         public void WhenIAddATrackToThePlaylist()
         {
+	        var rand = new Random();
+	        _trackId = rand.Next(1, 1000).ToString(CultureInfo.InvariantCulture);
+
             new QueueTrackBuilder()
-                .AddTrack(TrackId)
+				.AddTrack(_trackId)
                 .ToPlaylist(_playlist.Id)
                 .Please();
         }
@@ -34,7 +41,19 @@ namespace PlaylistApi.Tests
                 .WithPlaylist(_playlist.Id)
                 .Please();
 
-            Assert.That(playlist.Tracks.First().Id, Is.EqualTo(TrackId));
+			Assert.That(playlist.Tracks.First().Id, Is.EqualTo(_trackId));
         }
+
+		[Then(@"the last track I added should be at the bottom of the playlist")]
+		public void ThenTheLastTrackIAddedShouldBeAtTheBottomOfThePlaylist()
+		{
+			var playlist = new GetPlaylistBuilder()
+				.WithPlaylist(_playlist.Id)
+				.Please();
+
+			Assert.That(playlist.Tracks.Last().Id, Is.EqualTo(_trackId));
+			
+		}
+
     }
 }
