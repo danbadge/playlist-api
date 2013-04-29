@@ -27,7 +27,7 @@ app.configure('production', function(){
 // Routes
 app.get('/status', routes.status);
 app.post('/playlist/create', routes.playlist.create);
-app.post('/playlist/:id/queue/:trackId', routes.playlist.queue);
+app.post('/playlist/:id/track/:trackId', routes.playlist.queue);
 app.get('/playlist/:id', routes.playlist.show);
 
 app.listen(process.env.PORT || 5000);
