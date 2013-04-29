@@ -36,7 +36,12 @@ Body:
 ````
 Response
 ``` bash
-{ "id": "5678" }
+{ 
+	"id": "5678" 
+	"trackName": "Reckoner",
+	"artistName": "Radiohead",
+	"imageUri": "http://image.url.com" 
+}
 ```
 
 ### Get Playlist
