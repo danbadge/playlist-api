@@ -7,14 +7,15 @@ Uses https://github.com/felixge/node-dirty as in memory store.
 ## Endpoints
 
 ### Create Playlist
+Request
 ```bash
 POST /playlist/create
 Body:
 { "name": "My first playlist" }
 ```
 
-RESPONSE
-``` javascript
+Response
+``` bash
 {
 	"id": "1234",
 	"name": "My first playlist",
@@ -22,23 +23,23 @@ RESPONSE
 }
 ```
 
-### Add track to playlist
-request
+### Add Track to Playlist
+Request
 ```bash
 POST /playlist/:id/queue/:trackId
 ````
 Response
-``` javascript
+``` bash
 { "id": "5678" }
 ```
 
-###
+### Get Playlist
 Request
 ```bash
 GET /playlist/1234
 ````
 Response
-``` javascript
+``` bash
 {
 	"id": "1234",
 	"name": "My first playlist",
