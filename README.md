@@ -49,7 +49,13 @@ Response
 {
 	"id": "1234",
 	"name": "My first playlist",
-	"tracks": { "id": "5678" }
+	"tracks": 
+	{ 
+		"id": "5678" 
+		"trackName": "Reckoner",
+		"artistName": "Radiohead",
+		"imageUri": "http://image.url.com" 
+	}
 }
 ```
 
